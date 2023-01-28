@@ -4,10 +4,12 @@ package model;
 public class Product {
 
     private String name;
-    private float price;
+    private double price;
     private int stock;
 
-    public Product(String name, float price) {
+
+    //REQUIRES: price > 0
+    public Product(String name, double price) {
         this.name = name;
         this.price = price;
         stock = 0;
@@ -26,7 +28,7 @@ public class Product {
         return this.name;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return this.price;
     }
 
