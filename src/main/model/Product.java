@@ -35,6 +35,15 @@ public class Product {
 
 
 
+    
+    // EFFECTS: returns printable representation of the product
+    public String toString() {
+        return ""; // STUB
+    }
+
+
+
+
 
 
 
