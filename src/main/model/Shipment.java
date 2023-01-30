@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Shipment {
 
-    private ArrayList<Product> shipmentItems;
+    private ArrayList shipmentItems;
 
-    public Shipment(ArrayList shipmentItems) {
+    public Shipment(ArrayList<Product> shipmentItems) {
         this.shipmentItems = shipmentItems;
     }
 }
