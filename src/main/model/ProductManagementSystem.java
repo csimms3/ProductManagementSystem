@@ -18,4 +18,22 @@ public class ProductManagementSystem {
     }
 
 
+    //EFFECTS: returns true if product already in catalogue, otherwise false
+    public boolean containsProduct(Product p) {
+        return false; //stub
+    }
+
+    //REQUIRES: product in catalogue
+    //EFFECTS: returns given product
+    public Product getProductById(int id) {
+        return null;
+    }
+
+    //REQUIRES: product in catalogue
+    //EFFECTS: returns given product
+    public Product getProductByName(String name) {
+        return null;
+    }
+
+
 }

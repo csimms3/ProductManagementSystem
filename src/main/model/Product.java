@@ -21,7 +21,7 @@ public class Product {
     //REQUIRES: amount > 0
     //MODIFIES: this
     //EFFECTS: increases product stock by given amount
-    public void increaseStock(int amount) {
+    public void addStock(int amount) {
         this.stock += amount;
     }
 
@@ -32,13 +32,11 @@ public class Product {
         this.stock -= amount;
     }
 
-
-
-
     
     // EFFECTS: returns printable representation of the product
     public String toString() {
-        return ""; // STUB
+        return "| #" + this.id + " | " + this.name + " | Price: $" + String.format("%.2f", this.price) + " | "
+                + this.stock + " in stock |";
     }
 
 
