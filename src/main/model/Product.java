@@ -1,6 +1,7 @@
 package model;
 
-// a product with a name, a price (in $), and a number in stock
+// a product with an id value, a name, a price (in $), and a number in stock
+// id must be unique
 public class Product {
 
     private String name;

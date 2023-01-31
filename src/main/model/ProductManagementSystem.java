@@ -10,7 +10,7 @@ public class ProductManagementSystem {
         catalogue = new ArrayList<>();
     }
 
-    //REQUIRES: product not already in catalogue
+    //REQUIRES: product with same id not already in catalogue
     //MODIFIES: this
     //EFFECTS: adds product to catalogue
     public void addProduct(Product p) {
@@ -18,9 +18,16 @@ public class ProductManagementSystem {
     }
 
 
-    //EFFECTS: returns true if product already in catalogue, otherwise false
-    public boolean containsProduct(Product p) {
-        return false; //stub
+    //EFFECTS: returns true if product with id already in catalogue, otherwise false
+    public boolean containsProduct(Product newProd) {
+        boolean contains = false;
+
+        for (Product prod:catalogue) {
+            if (prod.getId() == newProd.getId()) {
+                contains = true;
+            }
+        }
+        return contains;
     }
 
     //REQUIRES: product in catalogue
@@ -33,6 +40,12 @@ public class ProductManagementSystem {
     //EFFECTS: returns given product
     public Product getProductByName(String name) {
         return null;
+    }
+
+    //GETTERS
+
+    public int getCatalogueSize() {
+        return catalogue.size();
     }
 
 

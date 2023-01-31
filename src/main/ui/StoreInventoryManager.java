@@ -7,6 +7,19 @@ import model.Shipment;
 // Main inventory object, will be used to store products and their data
 public class StoreInventoryManager {
 
+    public StoreInventoryManager() {
+        runApplication();
+    }
+
+    //EFFECTS: initializes and runs inventory manager app
+    public void runApplication() {
+        boolean runManager = true;
+
+        while (runManager) {
+
+        }
+    }
+
 
     //REQUIRES: stock of each item in sale >= num sold
     //MODIFIES: this
