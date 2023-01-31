@@ -52,11 +52,11 @@ class ProductManagementSystemTest {
         assertEquals(emptySys.getCatalogueSize(),1);
         assertTrue(emptySys.containsProduct(testProd));
 
-        assertFalse(sys2.containsProduct(testProd));
+        assertFalse(sys2.containsProduct(0000));
         assertEquals(sys2.getCatalogueSize(),2);
         sys2.addProduct(testProd);
         assertEquals(sys2.getCatalogueSize(),3);
-        assertTrue(sys2.containsProduct(testProd));
+        assertTrue(sys2.containsProduct(0000));
 
 
 

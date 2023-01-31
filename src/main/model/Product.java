@@ -36,8 +36,9 @@ public class Product {
     
     // EFFECTS: returns printable representation of the product
     public String toString() {
-        return "| #" + this.id + " | " + this.name + " | Price: $" + String.format("%.2f", this.price) + " | "
-                + this.stock + " in stock |";
+        return "| #" + String.format("%04d", this.id) + " | " + this.name
+                + " | Price: $" + String.format("%.2f", this.price) + " | "
+                + this.stock + " in stock |\n";
     }
 
 

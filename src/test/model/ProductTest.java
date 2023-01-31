@@ -63,9 +63,9 @@ public class ProductTest {
 
     @Test
     public void testToString() {
-        assertEquals(p1.toString(), "| #1000 | P1 | Price: $5.99 | 0 in stock |");
-        assertEquals(p2.toString(), "| #9999 | P2 | Price: $0.56 | 0 in stock |");
-        assertEquals(p3.toString(), "| #8981 | Ball | Price: $10.00 | 0 in stock |");
+        assertEquals(p1.toString(), "| #1000 | P1 | Price: $5.99 | 0 in stock |\n");
+        assertEquals(p2.toString(), "| #9999 | P2 | Price: $0.56 | 0 in stock |\n");
+        assertEquals(p3.toString(), "| #8981 | Ball | Price: $10.00 | 0 in stock |\n");
     }
 
 
