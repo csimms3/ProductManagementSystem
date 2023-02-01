@@ -33,18 +33,6 @@ class ProductManagementSystemTest {
     }
 
     @Test
-    public void testContainsProduct() {
-        assertFalse(emptySys.containsProduct(p1));
-        assertFalse(emptySys.containsProduct(p2));
-
-        assertTrue(sys1.containsProduct(p1));
-        assertFalse(sys1.containsProduct(p2));
-
-        assertTrue(sys2.containsProduct(p1));
-        assertTrue(sys2.containsProduct(p2));
-    }
-
-    @Test
     public void testAddProduct() {
         assertFalse(emptySys.containsProduct(testProd));
         assertEquals(emptySys.getCatalogueSize(),0);
@@ -57,8 +45,38 @@ class ProductManagementSystemTest {
         sys2.addProduct(testProd);
         assertEquals(sys2.getCatalogueSize(),3);
         assertTrue(sys2.containsProduct(0000));
+    }
 
+    @Test
+    public void testContainsProduct() {
+        assertFalse(emptySys.containsProduct(p1));
+        assertFalse(emptySys.containsProduct(p2));
 
+        assertTrue(sys1.containsProduct(p1));
+        assertFalse(sys1.containsProduct(p2));
+
+        assertTrue(sys2.containsProduct(p1));
+        assertTrue(sys2.containsProduct(p2));
+    }
+
+    @Test
+    public void testDisplayCatalogue() {
+        assertEquals(emptySys.displayCatalogue().toString(), "");
+        assertEquals(sys2.displayCatalogue().toString(),
+                "| #0001 | Apple | Price: $0.99 | 0 in stock |\n" +
+                "| #1234 | Orange | Price: $0.79 | 0 in stock |\n");
+    }
+
+    @Test
+    public void getProductById() {
+        assertEquals(emptySys.getProductById(0001), null);
+
+        assertEquals(sys1.getProductById(0001), p1);
+        assertEquals(sys1.getProductById(1234), null);
+
+        assertEquals(sys2.getProductById(0001), p1);
+        assertEquals(sys2.getProductById(1234), p2);
+        assertEquals(sys2.getProductById(4444), null);
 
     }
 
