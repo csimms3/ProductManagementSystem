@@ -63,7 +63,7 @@ public class StoreInventoryManager {
     //EFFECTS: handles user input
     public void handleInput(String cmd) {
         if (cmd.equals("vc")) {
-            System.out.print(sys.displayCatalogue());
+            handleViewCatalogue();
 
         } else if (cmd.equals("fp"))  {
             handleFindProduct();
@@ -76,6 +76,7 @@ public class StoreInventoryManager {
 
         } else if (cmd.equals("e")) {
             managerRunning = false;
+
         } else {
             System.out.println("Invalid Input.");
         }
@@ -93,6 +94,14 @@ public class StoreInventoryManager {
 
     }
 
+    //EFFECTS: prints current product catalogue
+    public void handleViewCatalogue() {
+        bufferLine();
+        System.out.print(sys.displayCatalogue());
+        bufferLine();
+        stallLoop();
+    }
+
     //MODIFIES: this
     //EFFECTS: take user input and handles related exceptions
     public void handleFindProduct() {
@@ -100,24 +109,32 @@ public class StoreInventoryManager {
         String cmd;
 
         while (queryInput) {
-            System.out.println("Enter product id:");
+            System.out.println("Enter product id, or (e) to exit:");
             System.out.print("> ");
             cmd = input.next().toLowerCase();
 
-            try {
-                int productId = Integer.parseInt(cmd);
+            if (cmd.equals("e")) {
                 queryInput = false;
-                findProduct(productId);
-            } catch (NumberFormatException e) {
+            } else if (cmd.length() == 4) {
+                try {
+                    int productId = Integer.parseInt(cmd);
+                    queryInput = false;
+                    findProduct(productId);
+
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid Id.");
+                }
+            } else {
                 System.out.println("Invalid Id.");
             }
         }
     }
 
     //EFFECTS: tries to find product based on id number
-    public void findProduct(int id) {
+    private void findProduct(int id) {
         if (sys.containsProduct(id)) {
-            System.out.println(sys.getProductById(id).toString());
+            System.out.print(sys.getProductById(id).toString());
+            stallLoop();
         } else {
             System.out.println("Could not find product.");
         }
@@ -151,8 +168,17 @@ public class StoreInventoryManager {
         // stub
     }
 
+
+
+
     //EFFECTS: prints a buffer line (for spacing) to screen
     public void bufferLine() {
         System.out.println(("-----------------------------"));
+    }
+
+    //EFFECTS: prompts user for input, to temporarily pause system state
+    public void stallLoop() {
+        System.out.print("Press enter to return.");
+        String temp = input.next();
     }
 }
