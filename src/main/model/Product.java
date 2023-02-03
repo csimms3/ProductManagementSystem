@@ -16,7 +16,6 @@ public class Product {
         this.price = price;
         this.id = id;
         stock = 0;
-
     }
 
     //REQUIRES: amount > 0
@@ -35,6 +34,7 @@ public class Product {
 
     
     // EFFECTS: returns printable representation of the product
+    @Override
     public String toString() {
         return "| #" + String.format("%04d", this.id) + " | " + this.name
                 + " | Price: $" + String.format("%.2f", this.price) + " | "
@@ -42,10 +42,20 @@ public class Product {
     }
 
 
+    // SETTERS
 
+    //MODIFIES: this
+    //EFFECTS: sets product name to new name
+    public void setName(String name) {
+        this.name = name;
+    }
 
-
-
+    //REQUIRES: price > 0
+    //MODIFIES: this
+    //EFFECTS: sets product price to new price
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
 
     // GETTERS

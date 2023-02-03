@@ -18,7 +18,7 @@ public class ProductManagementSystem {
         this.catalogue.add(p);
     }
 
-
+    // search using id number
     //EFFECTS: returns true if product with id already in catalogue, otherwise false
     public boolean containsProduct(int productId) {
         boolean contains = false;
@@ -31,6 +31,8 @@ public class ProductManagementSystem {
         return contains;
     }
 
+    // search by object
+    //EFFECTS: returns true if product with id already in catalogue, otherwise false
     public boolean containsProduct(Product prod) {
         boolean contains = false;
 
@@ -52,7 +54,6 @@ public class ProductManagementSystem {
         return str;
     }
 
-
     //REQUIRES: product in catalogue
     //EFFECTS: returns given product
     public Product getProductById(int id) {
@@ -72,6 +73,7 @@ public class ProductManagementSystem {
     public Product getProductByName(String name) {
         return null;
     }
+
 
     //GETTERS
 

@@ -68,6 +68,20 @@ public class ProductTest {
         assertEquals(p3.toString(), "| #8981 | Ball | Price: $10.00 | 0 in stock |\n");
     }
 
+    @Test
+    public void testSetters() {
+        assertEquals(p1.getName(), "P1");
+        p1.setName("Bob");
+        assertEquals(p1.getName(), "Bob");
+        p1.setName("Timothy");
+        assertEquals(p1.getName(), "Timothy");
+
+        assertEquals(p1.getPrice(), 5.99);
+        p1.setPrice(10.00);
+        assertEquals(p1.getPrice(), 10.00);
+        p1.setPrice(1000000.00);
+        assertEquals(p1.getPrice(), 1000000.00);
+    }
 
 
 }
