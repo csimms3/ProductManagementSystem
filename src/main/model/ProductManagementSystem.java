@@ -67,13 +67,6 @@ public class ProductManagementSystem {
         return prod;
     }
 
-    //TODO:
-    //REQUIRES: product in catalogue
-    //EFFECTS: returns given product
-    public Product getProductByName(String name) {
-        return null;
-    }
-
 
     //GETTERS
 
