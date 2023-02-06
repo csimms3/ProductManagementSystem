@@ -151,7 +151,7 @@ public class StoreInventoryManager {
 
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, p
     //EFFECTS: allows user to edit attributes of given product
     private void changeProduct(Product p) {
         boolean queryInput = true;
@@ -190,7 +190,7 @@ public class StoreInventoryManager {
 
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, p
     //EFFECTS: handles user changing product name
     private void handleChangeProductName(Product p) {
         boolean queryInput = true;
@@ -211,7 +211,7 @@ public class StoreInventoryManager {
         }
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, p
     //EFFECTS: handles user changing product price
     private void handleChangeProductPrice(Product p) {
         boolean queryInput = true;
@@ -236,7 +236,7 @@ public class StoreInventoryManager {
         }
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, p
     //EFFECTS: handles user adding product stock
     private void handleAddStock(Product p) {
         boolean queryInput = true;
@@ -262,7 +262,7 @@ public class StoreInventoryManager {
         }
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, p
     //EFFECTS: handles user reducing product stock
     private void handleRemoveStock(Product p) {
         boolean queryInput = true;
@@ -292,7 +292,7 @@ public class StoreInventoryManager {
     }
 
 
-    //MODIFIES: this
+    //MODIFIES: this, productSystem
     //EFFECTS: Allows user to create product and add to catalogue
     public void handleCreateProduct() {
         boolean queryInput = true;
@@ -376,7 +376,7 @@ public class StoreInventoryManager {
         return id;
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, productSystem
     //EFFECTS: allows user to add new product to catalogue, or discard it
     public void handleNewProduct(Product p) {
         boolean queryInput = true;
