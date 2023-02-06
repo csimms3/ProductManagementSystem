@@ -44,15 +44,11 @@ public class Product {
 
     // SETTERS
 
-    //MODIFIES: this
-    //EFFECTS: sets product name to new name
     public void setName(String name) {
         this.name = name;
     }
 
     //REQUIRES: price > 0
-    //MODIFIES: this
-    //EFFECTS: sets product price to new price
     public void setPrice(double price) {
         this.price = price;
     }
