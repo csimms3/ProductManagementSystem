@@ -26,6 +26,7 @@ public class ProductManagementSystem {
         for (Product prod:catalogue) {
             if (prod.getId() == productId) {
                 contains = true;
+                break;
             }
         }
         return contains;
@@ -38,6 +39,7 @@ public class ProductManagementSystem {
         for (Product p:catalogue) {
             if (prod.getId() == p.getId()) {
                 contains = true;
+                break;
             }
         }
         return contains;
@@ -56,14 +58,12 @@ public class ProductManagementSystem {
     //REQUIRES: product in catalogue
     //EFFECTS: returns given product
     public Product getProductById(int id) {
-        Product prod = null;
-
         for (Product p:catalogue) {
             if (p.getId() == id) {
                 return p;
             }
         }
-        return prod;
+        return null;
     }
 
 

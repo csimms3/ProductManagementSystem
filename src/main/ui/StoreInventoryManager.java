@@ -57,13 +57,13 @@ public class StoreInventoryManager {
     //MODIFIES: this
     //EFFECTS: handles user input
     public void handleInput(String cmd) {
-        if (cmd.equals("vc")) {
+        if (cmd.equals("v")) {
             handleViewCatalogue();
 
-        } else if (cmd.equals("fp"))  {
+        } else if (cmd.equals("f"))  {
             handleFindProduct();
 
-        } else if (cmd.equals("cp"))  {
+        } else if (cmd.equals("c"))  {
             handleCreateProduct();
 
         } else if (cmd.equals("e")) {
@@ -78,9 +78,9 @@ public class StoreInventoryManager {
     public void showOptions() {
         System.out.println("Options:");
         bufferLine();
-        System.out.println("View Catalogue (vc)");
-        System.out.println("Find Product (fp)");
-        System.out.println("Create Product (cp)");
+        System.out.println("View Catalogue (v)");
+        System.out.println("Find Product (f)");
+        System.out.println("Create Product (c)");
         System.out.println("Exit (e)");
         bufferLine();
         System.out.print("> ");
@@ -123,7 +123,7 @@ public class StoreInventoryManager {
         }
     }
 
-    //REQUIRES: id is int of length 4
+    //REQUIRES: id is length 4
     //EFFECTS: tries to find product based on id number
     private void findProduct(int id) {
         boolean queryInput = true;
@@ -199,13 +199,14 @@ public class StoreInventoryManager {
         while (queryInput) {
             System.out.println("Enter a new name to change product name, or (e) to exit");
             System.out.print("> ");
-            cmd = input.next().toLowerCase();
+            cmd = input.next();
             if (cmd.equals("e")) {
                 queryInput = false;
             } else {
                 p.setName(cmd);
+                queryInput = false;
                 System.out.print("Product name successfully changed:");
-                System.out.println(p.toString());
+                System.out.println(p);
                 stallLoop();
             }
         }
@@ -227,7 +228,7 @@ public class StoreInventoryManager {
                 p.setPrice(newPrice);
                 queryInput = false;
                 System.out.print("Product price successfully changed:");
-                System.out.println(p.toString());
+                System.out.println(p);
                 stallLoop();
 
             } catch (NumberFormatException e) {
@@ -253,7 +254,7 @@ public class StoreInventoryManager {
                 p.addStock(newStock);
                 queryInput = false;
                 System.out.print("Product stock successfully changed:");
-                System.out.println(p.toString());
+                System.out.println(p);
                 stallLoop();
 
             } catch (NumberFormatException e) {
@@ -280,7 +281,7 @@ public class StoreInventoryManager {
                     p.reduceStock(newStock);
                     queryInput = false;
                     System.out.print("Product stock successfully changed:");
-                    System.out.println(p.toString());
+                    System.out.println(p);
                     stallLoop();
                 } else {
                     System.out.println("Invalid Stock. Cannot remove more than current stock");
@@ -290,7 +291,6 @@ public class StoreInventoryManager {
             }
         }
     }
-
 
     //MODIFIES: this, productSystem
     //EFFECTS: Allows user to create product and add to catalogue
@@ -402,7 +402,6 @@ public class StoreInventoryManager {
             }
         }
     }
-
 
     //EFFECTS: prints a buffer line (for spacing) to screen
     public void bufferLine() {

@@ -10,6 +10,7 @@ class ProductManagementSystemTest {
     Product p1;
     Product p2;
     Product testProd;
+    Product testProd2;
 
     ProductManagementSystem emptySys;
     ProductManagementSystem sys1;
@@ -21,6 +22,7 @@ class ProductManagementSystemTest {
         p2 = new Product("Orange", 0.79, 1234);
 
         testProd = new Product("test", 0.01, 0000);
+        testProd2 = new Product("test2", 0.02, 0002);
 
         emptySys = new ProductManagementSystem();
         sys1 = new ProductManagementSystem();
@@ -33,18 +35,28 @@ class ProductManagementSystemTest {
     }
 
     @Test
-    public void testAddProduct() {
+    public void testAddProductOnce() {
         assertFalse(emptySys.containsProduct(testProd));
         assertEquals(emptySys.getCatalogueSize(),0);
         emptySys.addProduct(testProd);
         assertEquals(emptySys.getCatalogueSize(),1);
         assertTrue(emptySys.containsProduct(testProd));
 
+    }
+
+    @Test
+    public void testAddProductTwice() {
         assertFalse(sys2.containsProduct(0000));
         assertEquals(sys2.getCatalogueSize(),2);
         sys2.addProduct(testProd);
         assertEquals(sys2.getCatalogueSize(),3);
         assertTrue(sys2.containsProduct(0000));
+
+        assertFalse(sys2.containsProduct(0002));
+        assertEquals(sys2.getCatalogueSize(),3);
+        sys2.addProduct(testProd2);
+        assertEquals(sys2.getCatalogueSize(),4);
+        assertTrue(sys2.containsProduct(0002));
     }
 
     @Test

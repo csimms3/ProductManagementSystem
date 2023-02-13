@@ -69,13 +69,16 @@ public class ProductTest {
     }
 
     @Test
-    public void testSetters() {
+    public void testSetName() {
         assertEquals(p1.getName(), "P1");
         p1.setName("Bob");
         assertEquals(p1.getName(), "Bob");
         p1.setName("Timothy");
         assertEquals(p1.getName(), "Timothy");
+    }
 
+    @Test
+    public void testSetPrice() {
         assertEquals(p1.getPrice(), 5.99);
         p1.setPrice(10.00);
         assertEquals(p1.getPrice(), 10.00);
