@@ -270,7 +270,7 @@ public class StoreInventoryManager {
         String cmd;
 
         while (queryInput) {
-            System.out.println("Enter number of items to remove, or (e) to exit");
+            System.out.println("Enter number of items to remove");
             System.out.println("Current stock (cannot remove more than this): " + p.getStock());
             System.out.print("> ");
             cmd = input.next().toLowerCase();
