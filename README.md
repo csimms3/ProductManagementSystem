@@ -28,3 +28,5 @@ around this topic, allowing me to dive deeper into the specifics.
 - As a user, I want to be able to browse the catalogue (view all products)
 - As a user, I want to be able to search for a product by product number
 - As a user, I want to be able to process sales, updating stock numbers in doing so
+- As a user, I want to be able to save the state of my inventory to file (if I want)
+- As a user, I want to be given the option to load my inventory from file when I start the application
