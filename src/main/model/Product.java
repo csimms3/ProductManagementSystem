@@ -21,6 +21,14 @@ public class Product implements Writable {
         stock = 0;
     }
 
+    //REQUIRES: price > 0, id is 4 digits, stock >= 0
+    public Product(String name, double price, int id, int stock) {
+        this.name = name;
+        this.price = price;
+        this.id = id;
+        this.stock = stock;
+    }
+
     //REQUIRES: amount > 0
     //MODIFIES: this
     //EFFECTS: increases product stock by given amount
