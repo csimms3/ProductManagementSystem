@@ -1,9 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
+import javax.sql.rowset.WebRowSet;
 import java.util.ArrayList;
 
 //Product management system, keeps a catalogue of products
-public class ProductManagementSystem {
+public class ProductManagementSystem implements Writable {
 
     private ArrayList<Product> catalogue;
 
@@ -73,5 +78,22 @@ public class ProductManagementSystem {
         return catalogue.size();
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject jsonObj = new JSONObject();
+
+        jsonObj.put("products", productsToJson());
+
+        return jsonObj;
+    }
+
+    private JSONArray productsToJson() {
+        JSONArray jsonArr = new JSONArray();
+
+        for (Product p: this.catalogue) {
+            jsonArr.put(p.toJson());
+        }
+        return jsonArr;
+    }
 
 }

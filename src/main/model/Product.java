@@ -1,8 +1,11 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // a product with an id value, a name, a price (in $), and a number in stock
 // id must be unique
-public class Product {
+public class Product implements Writable {
 
     private String name;
     private double price;
@@ -70,6 +73,20 @@ public class Product {
 
     public int getId() {
         return this.id;
+    }
+
+
+    //EFFECTS: returns a JSON representation of product
+    @Override
+    public JSONObject toJson() {
+        JSONObject jsonObj = new JSONObject();
+
+        jsonObj.put("name", this.name);
+        jsonObj.put("price", this.price);
+        jsonObj.put("stock", this.stock);
+        jsonObj.put("id", this.id);
+
+        return jsonObj;
     }
 
 }
