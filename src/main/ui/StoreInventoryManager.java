@@ -2,12 +2,21 @@ package ui;
 
 import model.Product;
 import model.ProductManagementSystem;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 
 // Product Management interface
 public class StoreInventoryManager {
+
+    private static final String JSON_FILE = "./data/productmanagementsystem.json";
+    private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
+
 
     private ProductManagementSystem productSystem;
     private Scanner input;
@@ -15,19 +24,22 @@ public class StoreInventoryManager {
 
 
     //EFFECTS: initializes the interface
-    public StoreInventoryManager() {
+    public StoreInventoryManager() throws FileNotFoundException {
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+
+        productSystem = new ProductManagementSystem();
+        jsonReader = new JsonReader(JSON_FILE);
+        jsonWriter = new JsonWriter(JSON_FILE);
+
         runApplication();
     }
 
     //MODIFIES: this
     //EFFECTS: initializes and runs inventory manager app
-    public void runApplication() {
+    private void runApplication() {
         managerRunning = true;
         String cmd;
-
-        initializeSystem();
 
         while (managerRunning) {
             showOptions();
@@ -38,34 +50,18 @@ public class StoreInventoryManager {
     }
 
     //MODIFIES: this
-    //EFFECTS: sets up product system
-    public void initializeSystem() {
-        Product apple = new Product("Apple", 0.99, 0001);
-        Product ball = new Product("Ball", 4.00, 0015);
-        Product textbook = new Product("210-textbook", 119.99, 1205);
-        productSystem = new ProductManagementSystem();
-
-        productSystem.addProduct(apple);
-        productSystem.addProduct(ball);
-        productSystem.addProduct(textbook);
-
-        apple.addStock(3);
-        textbook.addStock(2);
-
-    }
-
-    //MODIFIES: this
     //EFFECTS: handles user input
-    public void handleInput(String cmd) {
+    private void handleInput(String cmd) {
         if (cmd.equals("v")) {
             handleViewCatalogue();
-
         } else if (cmd.equals("f"))  {
             handleFindProduct();
-
         } else if (cmd.equals("c"))  {
             handleCreateProduct();
-
+        } else if (cmd.equals("l"))  {
+            loadSystemFromFile();
+        } else if (cmd.equals("s"))  {
+            saveSystemToFile();
         } else if (cmd.equals("e")) {
             managerRunning = false;
 
@@ -75,12 +71,14 @@ public class StoreInventoryManager {
     }
 
     //EFFECTS: displays command options
-    public void showOptions() {
+    private void showOptions() {
         System.out.println("Options:");
         bufferLine();
         System.out.println("View Catalogue (v)");
         System.out.println("Find Product (f)");
         System.out.println("Create Product (c)");
+        System.out.println("Load System from File (l)");
+        System.out.println("Save System to File (s)");
         System.out.println("Exit (e)");
         bufferLine();
         System.out.print("> ");
@@ -88,7 +86,7 @@ public class StoreInventoryManager {
     }
 
     //EFFECTS: prints current product catalogue
-    public void handleViewCatalogue() {
+    private void handleViewCatalogue() {
         bufferLine();
         System.out.print(productSystem.displayCatalogue());
         bufferLine();
@@ -96,7 +94,7 @@ public class StoreInventoryManager {
     }
 
     //EFFECTS: take user input and handles related exceptions
-    public void handleFindProduct() {
+    private void handleFindProduct() {
         boolean queryInput = true;
         String cmd;
 
@@ -294,7 +292,7 @@ public class StoreInventoryManager {
 
     //MODIFIES: this, productSystem
     //EFFECTS: Allows user to create product and add to catalogue
-    public void handleCreateProduct() {
+    private void handleCreateProduct() {
         boolean queryInput = true;
 
         while (queryInput) {
@@ -321,7 +319,7 @@ public class StoreInventoryManager {
     }
 
     //EFFECTS: prompts user for product name and returns it
-    public String handleCreateProductName() {
+    private String handleCreateProductName() {
         bufferLine();
         System.out.println("Enter a name for new product:");
         System.out.print("> ");
@@ -329,7 +327,7 @@ public class StoreInventoryManager {
     }
 
     //EFFECTS: prompts user for price, validates and returns it
-    public double handleCreateProductPrice() {
+    private double handleCreateProductPrice() {
         boolean finished = false;
         double price = 0.0;
 
@@ -351,7 +349,7 @@ public class StoreInventoryManager {
     }
 
     //EFFECTS: prompts user for id, validates and returns it
-    public int handleCreateProductId() {
+    private int handleCreateProductId() {
         boolean finished = false;
         int id = 0;
 
@@ -400,6 +398,30 @@ public class StoreInventoryManager {
             } else {
                 System.out.println("Invalid Input.");
             }
+        }
+    }
+
+    //MODIFIES: this
+    //EFFECTS: loads system state from save file
+    private void loadSystemFromFile() {
+        try {
+            productSystem = jsonReader.read();
+            System.out.println("Loaded ProductSystem from " + JSON_FILE);
+        } catch (IOException e) {
+            System.out.println("File read error when reading from: " + JSON_FILE);
+        }
+
+    }
+
+    //EFFECTS: saves current state of system to save file
+    private void saveSystemToFile() {
+        try {
+            jsonWriter.openFile();
+            jsonWriter.write(productSystem);
+            jsonWriter.close();
+            System.out.println("Successfully saved Product System to: " + JSON_FILE);
+        } catch (FileNotFoundException e) {
+            System.out.println("File write error for: " + JSON_FILE);
         }
     }
 

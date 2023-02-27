@@ -54,8 +54,12 @@ public class ProductManagementSystem implements Writable {
     public StringBuilder displayCatalogue() {
         StringBuilder str = new StringBuilder();
 
-        for (Product p:catalogue) {
-            str.append(p.toString());
+        if (catalogue.size() == 0) {
+            str.append("Product System Empty.\n");
+        } else {
+            for (Product p:catalogue) {
+                str.append(p.toString());
+            }
         }
         return str;
     }

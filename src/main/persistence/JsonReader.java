@@ -23,8 +23,8 @@ public class JsonReader {
 
     //EFFECTS: reads ProductManagementSystem from file and returns it.
     // throws IOException if any errors arise during reading
-    public ProductManagementSystem read(String file) throws IOException {
-        String jsonData = readFile(file);
+    public ProductManagementSystem read() throws IOException {
+        String jsonData = readFile(sourceFile);
         JSONObject jsonObj = new JSONObject(jsonData);
         return parseProductManagementSystem(jsonObj);
     }

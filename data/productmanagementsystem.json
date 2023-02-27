@@ -1,0 +1,20 @@
+{"products": [
+    {
+        "price": 0.99,
+        "name": "Apple",
+        "id": 1,
+        "stock": 3
+    },
+    {
+        "price": 4,
+        "name": "Ball",
+        "id": 13,
+        "stock": 0
+    },
+    {
+        "price": 119.99,
+        "name": "210-textbook",
+        "id": 1205,
+        "stock": 2
+    }
+]}
