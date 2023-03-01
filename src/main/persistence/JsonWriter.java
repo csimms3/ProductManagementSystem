@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import java.io.*;
 
 // JSON writer, used to write ProductManagementSystem objects to file
-// this code has been adapted from JsonSerializationDemo
+// CITATION: code has been adapted from JsonSerializationDemo (CPSC 210)
 public class JsonWriter {
     private static final int TAB  = 4;
     private PrintWriter writer;

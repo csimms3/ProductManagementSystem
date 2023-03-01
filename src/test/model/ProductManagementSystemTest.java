@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+// test suite to test the productManagementSystem, and all related product actions
 class ProductManagementSystemTest {
 
     Product p1;

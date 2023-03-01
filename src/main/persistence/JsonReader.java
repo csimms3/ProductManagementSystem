@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 // Allows ProductManagementSystems to be read from Json files
-// Code adapted from JsonSerializationDemo project
+// CITATION: Code adapted from JsonSerializationDemo project, (CPSC 210)
 public class JsonReader {
     private String sourceFile;
 

@@ -401,6 +401,10 @@ public class StoreInventoryManager {
         }
     }
 
+
+
+    // JSON load/save methods adapted from JsonSerializationDemo
+
     //MODIFIES: this
     //EFFECTS: loads system state from save file
     private void loadSystemFromFile() {

@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
+// test suite to ensure that product objects behave as expected
 public class ProductTest {
 
     Product p1;
