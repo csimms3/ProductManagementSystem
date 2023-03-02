@@ -1,4 +1,5 @@
 package persistence;
 
-public class JsonReaderTest {
+// test class to ensure the jsonReader functions as expected
+public class JsonReaderTest extends JsonTest {
 }
