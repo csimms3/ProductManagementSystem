@@ -75,7 +75,7 @@ class ProductManagementSystemTest {
 
     @Test
     public void testDisplayCatalogue() {
-        assertEquals(emptySys.displayCatalogue().toString(), "");
+        assertEquals(emptySys.displayCatalogue().toString(), "Product System Empty.\n");
         assertEquals(sys2.displayCatalogue().toString(),
                 "| #0001 | Apple | Price: $0.99 | 0 in stock |\n" +
                 "| #1234 | Orange | Price: $0.79 | 0 in stock |\n");
