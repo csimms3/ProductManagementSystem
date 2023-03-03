@@ -83,14 +83,14 @@ class ProductManagementSystemTest {
 
     @Test
     public void getProductById() {
-        assertEquals(emptySys.getProductById(0001), null);
+        assertNull(emptySys.getProductById(0001));
 
         assertEquals(sys1.getProductById(0001), p1);
-        assertEquals(sys1.getProductById(1234), null);
+        assertNull(sys1.getProductById(1234));
 
         assertEquals(sys2.getProductById(0001), p1);
         assertEquals(sys2.getProductById(1234), p2);
-        assertEquals(sys2.getProductById(4444), null);
+        assertNull(sys2.getProductById(4444));
 
     }
 

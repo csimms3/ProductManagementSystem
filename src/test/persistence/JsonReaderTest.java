@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 // test class to ensure the jsonReader functions as expected
 public class JsonReaderTest extends JsonTest {
 
+    // test reader fails when opening nonexistent file
     @Test
     void testJsonReaderInvalidFile() {
         JsonReader jsonReader = new JsonReader("./data/noFileHereHmmmm.json");
@@ -24,6 +25,7 @@ public class JsonReaderTest extends JsonTest {
         }
     }
 
+    //test reader can correctly load empty productsystem
     @Test
     void testJsonReaderEmptyProductFile() {
         JsonReader jsonReader = new JsonReader("./data/testJsonReaderEmptyProductSystem.json");
@@ -37,6 +39,7 @@ public class JsonReaderTest extends JsonTest {
         }
     }
 
+    //test reader can accurately load non-empty productsystem
     @Test
     void testJsonReaderRegularProductFile() {
         JsonReader jsonReader = new JsonReader("./data/testJsonReaderNormalProductSystem.json");
