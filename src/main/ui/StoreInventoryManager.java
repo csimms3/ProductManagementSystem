@@ -404,6 +404,7 @@ public class StoreInventoryManager {
 
 
     // JSON load/save methods adapted from JsonSerializationDemo
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
     //MODIFIES: this
     //EFFECTS: loads system state from save file

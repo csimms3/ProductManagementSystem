@@ -7,7 +7,7 @@
         "stock": 3
     },
     {
-        "price": 4,
+        "price": 4.00,
         "name": "Ball",
         "id": 13,
         "stock": 0
@@ -17,17 +17,5 @@
         "name": "210-textbook",
         "id": 1205,
         "stock": 2
-    },
-    {
-        "price": 9.99,
-        "name": "Toy",
-        "id": 12,
-        "stock": 0
-    },
-    {
-        "price": 0.9,
-        "name": "ff",
-        "id": 9999,
-        "stock": 0
     }]
 }

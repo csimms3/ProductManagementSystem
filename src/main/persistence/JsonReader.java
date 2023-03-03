@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 
 // Allows ProductManagementSystems to be read from Json files
 // CITATION: Code adapted from JsonSerializationDemo project, (CPSC 210)
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class JsonReader {
     private String sourceFile;
 
