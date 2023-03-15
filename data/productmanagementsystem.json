@@ -1,33 +1,14 @@
-{
-  "products": [
+{"products": [
     {
-        "price": 0.99,
-        "name": "Apple",
-        "id": 1,
-        "stock": 3
-    },
-    {
-        "price": 4,
-        "name": "Ball",
-        "id": 13,
+        "price": 12.34,
+        "name": "text",
+        "id": 1234,
         "stock": 0
     },
     {
-        "price": 119.99,
-        "name": "210-textbook",
-        "id": 1205,
-        "stock": 2
-    },
-    {
-        "price": 9.99,
-        "name": "Toy",
-        "id": 12,
+        "price": 23,
+        "name": "keyboard",
+        "id": 9899,
         "stock": 0
-    },
-    {
-        "price": 0.9,
-        "name": "ff",
-        "id": 9999,
-        "stock": 0
-    }]
-}
+    }
+]}

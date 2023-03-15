@@ -12,6 +12,8 @@ public class ProductManagementSystem implements Writable {
 
     private ArrayList<Product> catalogue;
 
+
+    //EFFECTS: initializes a ProductManagementSystem with an empty catalogue
     public ProductManagementSystem() {
         catalogue = new ArrayList<>();
     }
