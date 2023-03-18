@@ -4,7 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
 
-import javax.sql.rowset.WebRowSet;
 import java.util.ArrayList;
 
 //Product management system, keeps a catalogue of products
