@@ -1,22 +1,50 @@
 package ui;
 
+import model.Product;
+import model.ProductManagementSystem;
+import persistence.JsonReader;
+import persistence.JsonWriter;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
 // GUI for productmanagementsystem
 public class ProductSystemUI {
 
+    private static final String JSON_FILE = "./data/productmanagementsystem.json";
+
     JFrame frame = new JFrame();
     JPanel panel = new JPanel();
+
+    ProductManagementSystem productSystem = new ProductManagementSystem();
+    Product p1 = new Product("Product one", 4.99, 0001);
+    Product p2 = new Product("Product two!!!", 19.99, 2000);
+    Product p3 = new Product("Product three!!!", 19.99, 2000);
+    Product p4 = new Product("Product four!!!", 19.99, 2000);
+    Product p5 = new Product("Product five!!!", 19.99, 2000);
+
+    JsonReader jsonReader = new JsonReader(JSON_FILE);
+    JsonWriter jsonWriter = new JsonWriter(JSON_FILE);
 
     //EFFECTS: initializes the main GUI window, at the menu screen
     public ProductSystemUI() {
         setupGUI();
+        productSystem.addProduct(p1);
+        productSystem.addProduct(p2);
+        productSystem.addProduct(p3);
+        productSystem.addProduct(p4);
+        productSystem.addProduct(p5);
+
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: sets up main menu GUI
     private void setupGUI() {
         setupFrame();
         panel.setLayout(null);
@@ -37,9 +65,10 @@ public class ProductSystemUI {
     private void setupFrame() {
         frame.setTitle("Product Management System");
         frame.setSize(400,300);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(panel);
         frame.setResizable(false);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        saveOnExitListener();
 
     }
 
@@ -91,7 +120,7 @@ public class ProductSystemUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("View Catalogue Action (Main Window)");
-                new ViewCatalogueUI();
+                new ViewCatalogueUI(productSystem);
             }
         });
         panel.add(viewProductsButton);
@@ -111,7 +140,55 @@ public class ProductSystemUI {
         panel.add(loadSystemButton);
     }
 
-    //TODO: add WindowListener for SAVE functionality
+    //MODIFIES: this
+    //EFFECTS: shows save prompt on program exit
+    private void saveOnExitListener() {
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                if (JOptionPane.showConfirmDialog(frame,
+                        "Do you want to save your changes before quitting?", "Save Changes",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
+                    saveCatalogue();
+                }
+            }
+        });
+    }
+
+    //EFFECTS: saves the current state of the catalogue to file
+    private void saveCatalogue() {
+        saveSystemToFile(productSystem);
+    }
+
+    //EFFECTS: loads system state from save file
+    private ProductManagementSystem loadSystemFromFile() {
+        ProductManagementSystem productSystem = new ProductManagementSystem();
+        try {
+            productSystem = jsonReader.read();
+            System.out.println("Loaded ProductSystem from " + JSON_FILE);
+        } catch (IOException e) {
+            System.out.println("File read error when reading from: " + JSON_FILE);
+        }
+        return productSystem;
+    }
+
+    //EFFECTS: saves current state of system to save file
+    private void saveSystemToFile(ProductManagementSystem productSystem) {
+        try {
+            jsonWriter.openFile();
+            jsonWriter.write(productSystem);
+            jsonWriter.close();
+            System.out.println("Successfully saved Product System to: " + JSON_FILE);
+        } catch (FileNotFoundException e) {
+            System.out.println("File write error for: " + JSON_FILE);
+        }
+    }
+
+    //EFFECTS: returns current state of catalogue
+    public ProductManagementSystem getCatalogue() {
+        return productSystem;
+    }
 
 
     //EFFECTS: initializes a new GUI system

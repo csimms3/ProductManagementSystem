@@ -61,7 +61,7 @@ public class StoreInventoryManager {
         } else if (cmd.equals("l"))  {
             loadSystemFromFile();
         } else if (cmd.equals("s"))  {
-            saveSystemToFile();
+            saveSystemToFile(productSystem);
         } else if (cmd.equals("e")) {
             managerRunning = false;
 
@@ -419,10 +419,10 @@ public class StoreInventoryManager {
     }
 
     //EFFECTS: saves current state of system to save file
-    private void saveSystemToFile() {
+    private void saveSystemToFile(ProductManagementSystem prodSys) {
         try {
             jsonWriter.openFile();
-            jsonWriter.write(productSystem);
+            jsonWriter.write(prodSys);
             jsonWriter.close();
             System.out.println("Successfully saved Product System to: " + JSON_FILE);
         } catch (FileNotFoundException e) {

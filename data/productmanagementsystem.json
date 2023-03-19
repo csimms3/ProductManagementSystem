@@ -1,14 +1,32 @@
 {"products": [
     {
-        "price": 12.34,
-        "name": "text",
-        "id": 1234,
+        "price": 4.99,
+        "name": "Product one",
+        "id": 1,
         "stock": 0
     },
     {
-        "price": 23,
-        "name": "keyboard",
-        "id": 9899,
+        "price": 19.99,
+        "name": "Product two!!!",
+        "id": 2000,
+        "stock": 0
+    },
+    {
+        "price": 19.99,
+        "name": "Product three!!!",
+        "id": 2000,
+        "stock": 0
+    },
+    {
+        "price": 19.99,
+        "name": "Product four!!!",
+        "id": 2000,
+        "stock": 0
+    },
+    {
+        "price": 19.99,
+        "name": "Product five!!!",
+        "id": 2000,
         "stock": 0
     }
 ]}

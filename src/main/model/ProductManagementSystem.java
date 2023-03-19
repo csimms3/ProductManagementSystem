@@ -76,6 +76,12 @@ public class ProductManagementSystem implements Writable {
         return null;
     }
 
+    //REQUIRES: index in range [0, catalogue.size() - 1] and catalogue not empty
+    //EFFECTS: returns product at given position in catalogue
+    public String getStringOfProductAtPosition(int index) {
+        return this.catalogue.get(index).toString();
+    }
+
 
     //GETTERS
 
