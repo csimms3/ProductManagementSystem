@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.*;
 
+//GUI for product creation
 public class ProductCreationUI {
 
     JFrame frame = new JFrame();
@@ -15,6 +16,7 @@ public class ProductCreationUI {
 
     JButton createProduct = new JButton("Create Product");
 
+    //EFFECTS: initializes new product creation window
     public ProductCreationUI() {
         setupFrame();
         setupPanel();
@@ -22,6 +24,8 @@ public class ProductCreationUI {
         frame.setVisible(true);
     }
 
+    //MODIFIES: this
+    //EFFECTS: sets up GUI elements
     private void setupFrame() {
         frame.setTitle("Create New Product");
         frame.setSize(350,160);
@@ -31,35 +35,43 @@ public class ProductCreationUI {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: sets up panel and associated elements
     private void setupPanel() {
         panel.setLayout(null);
         setupNameField();
         setupIdField();
         setupPriceField();
 
-        createProduct.setBounds(200, 100, 140, 25);
+        createProduct.setBounds(110, 100, 140, 25);
         panel.add(createProduct);
     }
 
+    //MODIFIES: this
+    //EFFECTS: sets up name field and label
     private void setupNameField() {
-        nameLabel.setBounds(20,10,160,25);
-        nameField.setBounds(250,10,80,25);
+        nameLabel.setBounds(20,5,160,25);
+        nameField.setBounds(250,5,80,25);
 
         panel.add(nameLabel);
         panel.add(nameField);
     }
 
+    //MODIFIES: this
+    //EFFECTS: sets up id field and label
     private void setupIdField() {
-        idLabel.setBounds(20,40,160,25);
-        idField.setBounds(250,40,80,25);
+        idLabel.setBounds(20,35,160,25);
+        idField.setBounds(250,35,80,25);
 
         panel.add(idLabel);
         panel.add(idField);
     }
 
+    //MODIFIES: this
+    //EFFECTS: sets up price field and label
     private void setupPriceField() {
-        priceLabel.setBounds(20,70,160,25);
-        priceField.setBounds(250,70,80,25);
+        priceLabel.setBounds(20,65,160,25);
+        priceField.setBounds(250,65,80,25);
 
         panel.add(priceLabel);
         panel.add(priceField);

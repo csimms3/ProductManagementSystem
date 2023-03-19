@@ -13,6 +13,11 @@ public class ProductSystemUI {
 
     //EFFECTS: initializes the main GUI window, at the menu screen
     public ProductSystemUI() {
+        setupGUI();
+
+    }
+
+    private void setupGUI() {
         setupFrame();
         panel.setLayout(null);
 
@@ -86,6 +91,7 @@ public class ProductSystemUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("View Action");
+                new ViewCatalogueUI();
             }
         });
         panel.add(viewProductsButton);
