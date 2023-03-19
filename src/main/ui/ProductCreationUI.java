@@ -1,6 +1,8 @@
 package ui;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 //GUI for product creation
 public class ProductCreationUI {
@@ -14,7 +16,7 @@ public class ProductCreationUI {
     JTextField idField = new JTextField(10);
     JTextField priceField = new JTextField(10);
 
-    JButton createProduct = new JButton("Create Product");
+
 
     //EFFECTS: initializes new product creation window
     public ProductCreationUI() {
@@ -42,9 +44,9 @@ public class ProductCreationUI {
         setupNameField();
         setupIdField();
         setupPriceField();
+        setupCreateProductButton();
 
-        createProduct.setBounds(110, 100, 140, 25);
-        panel.add(createProduct);
+
     }
 
     //MODIFIES: this
@@ -75,5 +77,19 @@ public class ProductCreationUI {
 
         panel.add(priceLabel);
         panel.add(priceField);
+    }
+
+    //MODIFIES: this
+    //EFFECTS: sets up the search button and associated on-click event
+    private void setupCreateProductButton() {
+        JButton createProduct = new JButton("Create Product");
+        createProduct.setBounds(110, 100, 140, 25);
+        createProduct.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("CreateProduct Action (ProductCreation Window)");
+            }
+        });
+        panel.add(createProduct);
     }
 }

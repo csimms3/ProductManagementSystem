@@ -60,7 +60,7 @@ public class ProductSystemUI {
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Search Action");
+                System.out.println("Search Action (Main Window)");
                 new ProductSearchUI();
             }
         });
@@ -90,7 +90,7 @@ public class ProductSystemUI {
         viewProductsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("View Action");
+                System.out.println("View Catalogue Action (Main Window)");
                 new ViewCatalogueUI();
             }
         });
@@ -105,7 +105,7 @@ public class ProductSystemUI {
         loadSystemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Load Action");
+                System.out.println("Load Action (Main Window)");
             }
         });
         panel.add(loadSystemButton);

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//GUI for viewing product catalogue
 public class ViewCatalogueUI {
 
     String[] testList = {"Product1", "Product 2"};
@@ -14,7 +15,7 @@ public class ViewCatalogueUI {
     JLabel displayLabel = new JLabel("Products:");
 
 
-
+    //EFFECTS: initializes new view catalogue ui
     public ViewCatalogueUI() {
         setupFrame();
         panel.setLayout(null);
