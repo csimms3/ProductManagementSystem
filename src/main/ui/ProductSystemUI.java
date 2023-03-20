@@ -105,7 +105,7 @@ public class ProductSystemUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("New Product Action");
-                new ProductCreationUI();
+                new ProductCreationUI(productSystem);
             }
         });
         panel.add(newProductButton);
@@ -135,6 +135,9 @@ public class ProductSystemUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Load Action (Main Window)");
+                productSystem = loadSystemFromFile();
+                JOptionPane.showMessageDialog(frame, "Catalogue loaded from: " + JSON_FILE,
+                        "Success", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         panel.add(loadSystemButton);
@@ -163,7 +166,6 @@ public class ProductSystemUI {
 
     //EFFECTS: loads system state from save file
     private ProductManagementSystem loadSystemFromFile() {
-        ProductManagementSystem productSystem = new ProductManagementSystem();
         try {
             productSystem = jsonReader.read();
             System.out.println("Loaded ProductSystem from " + JSON_FILE);
@@ -189,7 +191,6 @@ public class ProductSystemUI {
     public ProductManagementSystem getCatalogue() {
         return productSystem;
     }
-
 
     //EFFECTS: initializes a new GUI system
     public static void main(String[] args) {

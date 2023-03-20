@@ -28,5 +28,11 @@
         "name": "Product five!!!",
         "id": 2000,
         "stock": 0
+    },
+    {
+        "price": 22,
+        "name": "aaa",
+        "id": 22,
+        "stock": 0
     }
 ]}

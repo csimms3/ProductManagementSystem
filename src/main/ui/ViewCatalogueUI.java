@@ -53,6 +53,7 @@ public class ViewCatalogueUI {
 
     }
 
+    //EFFECTS: converts given ProductManagementSystem into array of string to be displayed
     private String[] convertCatalogue(ProductManagementSystem productSystem) {
         String[] convertedCatalogue = new String[productSystem.getCatalogueSize()];
 
