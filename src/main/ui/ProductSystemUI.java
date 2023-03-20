@@ -14,6 +14,8 @@ import java.io.IOException;
 
 
 // GUI for productmanagementsystem
+//citation: https://www.youtube.com/watch?v=iE8tZ0hn2Ws
+//main frame/panel structure based off above source
 public class ProductSystemUI {
 
     private static final String JSON_FILE = "./data/productmanagementsystem.json";
@@ -72,6 +74,8 @@ public class ProductSystemUI {
 
     }
 
+    //citation: https://stackoverflow.com/questions/5911565
+    //adapted code from source for handling multiple event listeners in single panel
     //MODIFIES: this
     //EFFECTS: sets up the main menu buttons
     private void setupButtons() {
@@ -143,6 +147,8 @@ public class ProductSystemUI {
         panel.add(loadSystemButton);
     }
 
+    //citation: https://stackoverflow.com/questions/9093448
+    //JOptionPane and windowlistener functionality adapted from source above
     //MODIFIES: this
     //EFFECTS: shows save prompt on program exit
     private void saveOnExitListener() {
