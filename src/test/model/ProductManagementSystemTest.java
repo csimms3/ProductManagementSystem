@@ -94,4 +94,23 @@ class ProductManagementSystemTest {
 
     }
 
+    @Test
+    public void testGetStringOfProductAtPosition() {
+        assertEquals(sys2.getStringOfProductAtPosition(0),
+                "| #0001 | Apple | Price: $0.99 | 0 in stock |\n");
+        assertEquals(sys2.getStringOfProductAtPosition(1),
+                "| #1234 | Orange | Price: $0.79 | 0 in stock |\n");
+    }
+
+    @Test
+    public void testDeleteProduct() {
+        assertTrue(sys2.containsProduct(0001));
+        sys2.deleteProduct(0001);
+        assertFalse(sys2.containsProduct(0001));
+
+        assertFalse(sys2.containsProduct(2332));
+        sys2.deleteProduct(2332);
+        assertFalse(sys2.containsProduct(2332));
+    }
+
 }

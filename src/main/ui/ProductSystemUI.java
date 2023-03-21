@@ -24,23 +24,13 @@ public class ProductSystemUI {
     JPanel panel = new JPanel();
 
     ProductManagementSystem productSystem = new ProductManagementSystem();
-    Product p1 = new Product("Product one", 4.99, 0001);
-    Product p2 = new Product("Product two!!!", 19.99, 2000);
-    Product p3 = new Product("Product three!!!", 19.99, 2000);
-    Product p4 = new Product("Product four!!!", 19.99, 2000);
-    Product p5 = new Product("Product five!!!", 19.99, 2000);
-
     JsonReader jsonReader = new JsonReader(JSON_FILE);
     JsonWriter jsonWriter = new JsonWriter(JSON_FILE);
 
     //EFFECTS: initializes the main GUI window, at the menu screen
     public ProductSystemUI() {
         setupGUI();
-        productSystem.addProduct(p1);
-        productSystem.addProduct(p2);
-        productSystem.addProduct(p3);
-        productSystem.addProduct(p4);
-        productSystem.addProduct(p5);
+
 
 
     }
@@ -94,7 +84,7 @@ public class ProductSystemUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Search Action (Main Window)");
-                new ProductSearchUI();
+                new ProductSearchUI(productSystem);
             }
         });
         panel.add(searchButton);

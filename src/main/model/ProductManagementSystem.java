@@ -82,6 +82,12 @@ public class ProductManagementSystem implements Writable {
         return this.catalogue.get(index).toString();
     }
 
+    //MODIFIES: this
+    //EFFECTS: removes product from productsystem, if not present does nothing
+    public void deleteProduct(int id) {
+        catalogue.removeIf(prod -> prod.getId() == id);
+    }
+
 
     //GETTERS
 

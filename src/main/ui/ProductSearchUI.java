@@ -1,5 +1,8 @@
 package ui;
 
+import model.Product;
+import model.ProductManagementSystem;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,8 +13,14 @@ public class ProductSearchUI {
     JFrame frame = new JFrame();
     JPanel panel = new JPanel();
 
+    JTextField searchBox = new JTextField(3);
+
+    ProductManagementSystem productSystem;
+
     //EFFECTS: initializes new search window
-    public ProductSearchUI() {
+    public ProductSearchUI(ProductManagementSystem productSystem) {
+        this.productSystem = productSystem;
+
         setupFrame();
         setupElements();
         frame.setLocationRelativeTo(null);
@@ -34,7 +43,7 @@ public class ProductSearchUI {
     //MODIFIES: this
     //EFFECTS: sets up gui elements
     private void setupElements() {
-        JTextField searchBox = new JTextField(3);
+
         JLabel instructions = new JLabel("Enter 4-digit Product ID:");
         JLabel exampleLabel = new JLabel("Example: 0000");
 
@@ -61,8 +70,45 @@ public class ProductSearchUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Search by ID Action (ProductSearch Window)");
+
+                if (!searchBox.getText().equals("")) {
+                    if (searchBox.getText().length() != 4 || (!isInteger(searchBox.getText()))) {
+                        displayInvalidIdFrame();
+                    } else {
+                        findProduct(Integer.parseInt(searchBox.getText()));
+                    }
+
+                }
             }
         });
         panel.add(searchButton);
+    }
+
+    //EFFECTS: displays invalid id error frame
+    private void displayInvalidIdFrame() {
+        JOptionPane.showMessageDialog(frame, "Invalid Id",
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    //EFFECTS: finds product in catalogue with given id
+    private void findProduct(int id) {
+        Product p = productSystem.getProductById(id);
+
+        if (p == null) {
+            JOptionPane.showMessageDialog(frame, "Could not find product with id: " + String.format("%04d", id),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            new ProductViewerUI(productSystem, p);
+        }
+    }
+
+    //EFFECTS: checks if a given string is numeric
+    private static boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

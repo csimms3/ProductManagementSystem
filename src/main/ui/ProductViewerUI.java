@@ -1,0 +1,163 @@
+package ui;
+
+import model.Product;
+import model.ProductManagementSystem;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+//UI for viewing and editing products
+public class ProductViewerUI {
+
+    static final int BUTTON_X = 200;
+    static final int TEXT_X = 10;
+    static final int TEXT_WIDTH = 200;
+    static final int ELEMENT_HEIGHT = 25;
+
+    JFrame frame = new JFrame();
+    JPanel panel = new JPanel();
+
+    Product product;
+    ProductManagementSystem productSystem;
+
+    //EFFECTS: initializes new search window
+    public ProductViewerUI(ProductManagementSystem productSystem, Product p) {
+        this.productSystem = productSystem;
+        this.product = p;
+
+        setupFrame();
+        setupElements();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    //MODIFIES: this
+    //EFFECTS: sets up frame and associated elements
+    private void setupFrame() {
+        frame.setTitle("#" + product.getId() + " - " + product.getName());
+        frame.setSize(350,200);
+        frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        frame.add(panel);
+        frame.setResizable(false);
+
+    }
+
+    //MODIFIES: this
+    //EFFECTS: sets up gui elements
+    private void setupElements() {
+        JLabel productName = new JLabel("Name: " + product.getName());
+        JLabel productPrice = new JLabel("Price: " + product.getPrice());
+        JLabel productStock = new JLabel("Stock: " + product.getStock());
+        JLabel productId = new JLabel("Id: " + product.getId());
+
+        panel.setLayout(null);
+
+        productName.setBounds(TEXT_X,5,TEXT_WIDTH,ELEMENT_HEIGHT);
+        productPrice.setBounds(TEXT_X,25,TEXT_WIDTH,ELEMENT_HEIGHT);
+        productStock.setBounds(TEXT_X,45,TEXT_WIDTH,ELEMENT_HEIGHT);
+        productId.setBounds(TEXT_X,65,TEXT_WIDTH,ELEMENT_HEIGHT);
+
+        panel.add(productName);
+        panel.add(productPrice);
+        panel.add(productStock);
+        panel.add(productId);
+
+        setupButtons();
+    }
+
+    //MODIFIES: this
+    //EFFECTS: sets up buttons to edit product attributes
+    private void setupButtons() {
+        setupChangeNameButton();
+        setupChangePriceButton();
+        setupAddStockButton();
+        setupRemoveStockButton();
+        setupDeleteProductButton();
+    }
+
+    //MODIFIES: this
+    //EFFECTS: sets up the change name button and associated on-click event
+    private void setupChangeNameButton() {
+        JButton nameChangeButton = new JButton("Change Name");
+        nameChangeButton.setBounds(BUTTON_X, 5, 150, ELEMENT_HEIGHT);
+        nameChangeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Name change action (Product View Window)");
+            }
+        });
+        panel.add(nameChangeButton);
+    }
+
+    //MODIFIES: this
+    //EFFECTS: sets up the change price button and associated on-click event
+    private void setupChangePriceButton() {
+        JButton priceChangeButton = new JButton("Change Price");
+        priceChangeButton.setBounds(BUTTON_X, 25, 150, ELEMENT_HEIGHT);
+        priceChangeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Price change action (Product View Window)");
+            }
+        });
+        panel.add(priceChangeButton);
+    }
+
+    //TODO
+    //MODIFIES: this
+    //EFFECTS: sets up the add stock button and associated on-click event
+    private void setupAddStockButton() {
+        JButton priceChangeButton = new JButton("Change Price");
+        priceChangeButton.setBounds(BUTTON_X, 45, 150, ELEMENT_HEIGHT);
+        priceChangeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Price change action (Product View Window)");
+            }
+        });
+        panel.add(priceChangeButton);
+    }
+
+    //TODO
+    //MODIFIES: this
+    //EFFECTS: sets up the remove stock button and associated on-click event
+    private void setupRemoveStockButton() {
+        JButton priceChangeButton = new JButton("Change Price");
+        priceChangeButton.setBounds(BUTTON_X, 65, 150, ELEMENT_HEIGHT);
+        priceChangeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Price change action (Product View Window)");
+            }
+        });
+        panel.add(priceChangeButton);
+    }
+
+    //MODIFIES: this
+    //EFFECTS: sets up the "delete product" button and associated on-click event
+    private void setupDeleteProductButton() {
+        JButton priceChangeButton = new JButton("Delete Product");
+        priceChangeButton.setBounds(BUTTON_X, 100, 150, ELEMENT_HEIGHT);
+        priceChangeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Delete Product action (Product View Window)");
+                int reply = JOptionPane.showConfirmDialog(frame,
+                        "Are you sure you want to delete this product?",
+                        "Confirm Product Deletion", JOptionPane.YES_NO_OPTION);
+                if (reply == JOptionPane.YES_OPTION) {
+                    frame.dispose();
+                    productSystem.deleteProduct(product.getId());
+                    JOptionPane.showMessageDialog(frame, "Product Deleted", "Success",
+                            JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    return;
+                }
+            }
+        });
+        panel.add(priceChangeButton);
+    }
+
+}
+
