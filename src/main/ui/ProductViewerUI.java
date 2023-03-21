@@ -71,8 +71,7 @@ public class ProductViewerUI {
     private void setupButtons() {
         setupChangeNameButton();
         setupChangePriceButton();
-        setupAddStockButton();
-        setupRemoveStockButton();
+        setupUpdateStockButton();
         setupDeleteProductButton();
     }
 
@@ -105,35 +104,19 @@ public class ProductViewerUI {
     }
 
     //MODIFIES: this
-    //EFFECTS: sets up the add stock button and associated on-click event
-    private void setupAddStockButton() {
-        JButton addStockButton = new JButton("Add Stock");
+    //EFFECTS: sets up the update stock button and associated on-click event
+    private void setupUpdateStockButton() {
+        JButton addStockButton = new JButton("Update Stock");
         addStockButton.setBounds(BUTTON_X, 55, 150, ELEMENT_HEIGHT);
         addStockButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Add stock action (Product View Window)");
-                new AddStockUI(product);
+                System.out.println("Update stock action (Product View Window)");
+                new UpdateStockUI(productSystem, product);
                 frame.dispose();
             }
         });
         panel.add(addStockButton);
-    }
-
-    //MODIFIES: this
-    //EFFECTS: sets up the remove stock button and associated on-click event
-    private void setupRemoveStockButton() {
-        JButton removeStockButton = new JButton("Remove Stock");
-        removeStockButton.setBounds(BUTTON_X, 80, 150, ELEMENT_HEIGHT);
-        removeStockButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Remove Stock action (Product View Window)");
-                new RemoveStockUI(product);
-                frame.dispose();
-            }
-        });
-        panel.add(removeStockButton);
     }
 
     //MODIFIES: this, product, productSystem

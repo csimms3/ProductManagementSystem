@@ -75,6 +75,7 @@ public class ProductSearchUI {
                     if (searchBox.getText().length() != 4 || (!isInteger(searchBox.getText()))) {
                         displayInvalidIdFrame();
                     } else {
+
                         findProduct(Integer.parseInt(searchBox.getText()));
                     }
 
@@ -98,6 +99,7 @@ public class ProductSearchUI {
             JOptionPane.showMessageDialog(frame, "Could not find product with id: " + String.format("%04d", id),
                     "Error", JOptionPane.ERROR_MESSAGE);
         } else {
+            frame.dispose();
             new ProductViewerUI(productSystem, p);
         }
     }
