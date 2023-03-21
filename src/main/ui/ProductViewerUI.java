@@ -35,7 +35,7 @@ public class ProductViewerUI {
     //MODIFIES: this
     //EFFECTS: sets up frame and associated elements
     private void setupFrame() {
-        frame.setTitle("#" + product.getId() + " - " + product.getName());
+        frame.setTitle("#" + String.format("%04d", product.getId()) + " - " + product.getName());
         frame.setSize(350,200);
         frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         frame.add(panel);
@@ -54,9 +54,9 @@ public class ProductViewerUI {
         panel.setLayout(null);
 
         productName.setBounds(TEXT_X,5,TEXT_WIDTH,ELEMENT_HEIGHT);
-        productPrice.setBounds(TEXT_X,25,TEXT_WIDTH,ELEMENT_HEIGHT);
-        productStock.setBounds(TEXT_X,45,TEXT_WIDTH,ELEMENT_HEIGHT);
-        productId.setBounds(TEXT_X,65,TEXT_WIDTH,ELEMENT_HEIGHT);
+        productPrice.setBounds(TEXT_X,30,TEXT_WIDTH,ELEMENT_HEIGHT);
+        productStock.setBounds(TEXT_X,55,TEXT_WIDTH,ELEMENT_HEIGHT);
+        productId.setBounds(TEXT_X,80,TEXT_WIDTH,ELEMENT_HEIGHT);
 
         panel.add(productName);
         panel.add(productPrice);
@@ -94,7 +94,7 @@ public class ProductViewerUI {
     //EFFECTS: sets up the change price button and associated on-click event
     private void setupChangePriceButton() {
         JButton priceChangeButton = new JButton("Change Price");
-        priceChangeButton.setBounds(BUTTON_X, 25, 150, ELEMENT_HEIGHT);
+        priceChangeButton.setBounds(BUTTON_X, 30, 150, ELEMENT_HEIGHT);
         priceChangeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -109,7 +109,7 @@ public class ProductViewerUI {
     //EFFECTS: sets up the add stock button and associated on-click event
     private void setupAddStockButton() {
         JButton priceChangeButton = new JButton("Change Price");
-        priceChangeButton.setBounds(BUTTON_X, 45, 150, ELEMENT_HEIGHT);
+        priceChangeButton.setBounds(BUTTON_X, 55, 150, ELEMENT_HEIGHT);
         priceChangeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -124,7 +124,7 @@ public class ProductViewerUI {
     //EFFECTS: sets up the remove stock button and associated on-click event
     private void setupRemoveStockButton() {
         JButton priceChangeButton = new JButton("Change Price");
-        priceChangeButton.setBounds(BUTTON_X, 65, 150, ELEMENT_HEIGHT);
+        priceChangeButton.setBounds(BUTTON_X, 80, 150, ELEMENT_HEIGHT);
         priceChangeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -138,7 +138,7 @@ public class ProductViewerUI {
     //EFFECTS: sets up the "delete product" button and associated on-click event
     private void setupDeleteProductButton() {
         JButton priceChangeButton = new JButton("Delete Product");
-        priceChangeButton.setBounds(BUTTON_X, 100, 150, ELEMENT_HEIGHT);
+        priceChangeButton.setBounds(BUTTON_X, 140, 150, ELEMENT_HEIGHT);
         priceChangeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

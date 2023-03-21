@@ -14,19 +14,19 @@
     {
         "price": 19.99,
         "name": "Product three!!!",
-        "id": 2000,
+        "id": 3000,
         "stock": 0
     },
     {
         "price": 19.99,
         "name": "Product four!!!",
-        "id": 2000,
+        "id": 4500,
         "stock": 0
     },
     {
         "price": 19.99,
         "name": "Product five!!!",
-        "id": 2000,
+        "id": 4501,
         "stock": 0
     },
     {
