@@ -104,37 +104,39 @@ public class ProductViewerUI {
         panel.add(priceChangeButton);
     }
 
-    //TODO
     //MODIFIES: this
     //EFFECTS: sets up the add stock button and associated on-click event
     private void setupAddStockButton() {
-        JButton priceChangeButton = new JButton("Change Price");
-        priceChangeButton.setBounds(BUTTON_X, 55, 150, ELEMENT_HEIGHT);
-        priceChangeButton.addActionListener(new ActionListener() {
+        JButton addStockButton = new JButton("Add Stock");
+        addStockButton.setBounds(BUTTON_X, 55, 150, ELEMENT_HEIGHT);
+        addStockButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Price change action (Product View Window)");
+                System.out.println("Add stock action (Product View Window)");
+                new AddStockUI(product);
+                frame.dispose();
             }
         });
-        panel.add(priceChangeButton);
+        panel.add(addStockButton);
     }
 
-    //TODO
     //MODIFIES: this
     //EFFECTS: sets up the remove stock button and associated on-click event
     private void setupRemoveStockButton() {
-        JButton priceChangeButton = new JButton("Change Price");
-        priceChangeButton.setBounds(BUTTON_X, 80, 150, ELEMENT_HEIGHT);
-        priceChangeButton.addActionListener(new ActionListener() {
+        JButton removeStockButton = new JButton("Remove Stock");
+        removeStockButton.setBounds(BUTTON_X, 80, 150, ELEMENT_HEIGHT);
+        removeStockButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Price change action (Product View Window)");
+                System.out.println("Remove Stock action (Product View Window)");
+                new RemoveStockUI(product);
+                frame.dispose();
             }
         });
-        panel.add(priceChangeButton);
+        panel.add(removeStockButton);
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, product, productSystem
     //EFFECTS: sets up the "delete product" button and associated on-click event
     private void setupDeleteProductButton() {
         JButton priceChangeButton = new JButton("Delete Product");
@@ -151,8 +153,6 @@ public class ProductViewerUI {
                     productSystem.deleteProduct(product.getId());
                     JOptionPane.showMessageDialog(frame, "Product Deleted", "Success",
                             JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    return;
                 }
             }
         });
