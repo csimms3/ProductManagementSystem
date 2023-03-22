@@ -38,6 +38,7 @@ public class UpdateStockUI {
     //MODIFIES: this
     //EFFECTS: sets up frame and associated elements
     private void setupFrame() {
+        frame.setTitle(product.getName());
         frame.setSize(250,150);
         frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         frame.add(panel);
@@ -69,7 +70,7 @@ public class UpdateStockUI {
     //EFFECTS: sets up the add stock button and associated on-click event
     private void setupAddButton() {
         JButton addButton = new JButton("Add");
-        addButton.setBounds(5, 90, 110, ELEMENT_HEIGHT);
+        addButton.setBounds(10, 90, 110, ELEMENT_HEIGHT);
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,7 +89,7 @@ public class UpdateStockUI {
     //EFFECTS: sets up the remove stock button and associated on-click event
     private void setupRemoveButton() {
         JButton removeButton = new JButton("Remove");
-        removeButton.setBounds(125, 90, 110, ELEMENT_HEIGHT);
+        removeButton.setBounds(130, 90, 110, ELEMENT_HEIGHT);
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

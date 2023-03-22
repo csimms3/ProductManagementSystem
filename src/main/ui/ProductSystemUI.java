@@ -41,10 +41,6 @@ public class ProductSystemUI {
         setupFrame();
         panel.setLayout(null);
 
-        JLabel label = new JLabel("Product Count: 0, Total Stock: 0");
-        label.setBounds(95,15,225,25);
-        panel.add(label);
-
         setupButtons();
 
         frame.setLocationRelativeTo(null);

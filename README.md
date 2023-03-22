@@ -30,3 +30,16 @@ around this topic, allowing me to dive deeper into the specifics.
 - As a user, I want to be able to process sales, updating stock numbers in doing so
 - As a user, I want to be able to save the state of my inventory to file (if I want)
 - As a user, I want to be given the option to load my inventory from file when I start the application
+
+## Instructions for Grader
+- Start the application by running ProductSystemUI.main().
+- Note the graphic that shows up while loading, this is the visual element.
+- Now, you may click "load from file" to optionally load the application state.
+- Whether you loaded the file or not, you can click "create product" to create a new product. 
+- Enter a name, a price in form (xx.xx), and a 4-digit id. If you load from file make sure
+that this id is unique (see below).
+- Now, go back to the main menu, and click "view catalogue".
+- Here you see all products, note the unique id proceeded by "#". This is how you will search.
+- Now, make note of one of these id's, and return to the main menu.
+- Click on "search", and enter the given product number.
+- This will display a product view that will allow you to update its stock, or delete the product.

@@ -139,7 +139,7 @@ public class ProductCreationUI {
     private void setupConfirmationLabels(Product p) {
         JLabel nameConfirmationLabel = new JLabel("Name: " + p.getName());
         JLabel idConfirmationLabel = new JLabel("Id: " + p.getId());
-        JLabel priceConfirmationLabel = new JLabel("Price: " + p.getPrice());
+        JLabel priceConfirmationLabel = new JLabel("Price: $" + p.getPrice());
 
         nameConfirmationLabel.setBounds(10,10,200,25);
         idConfirmationLabel.setBounds(10,30,200,25);

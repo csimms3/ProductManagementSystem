@@ -69,38 +69,8 @@ public class ProductViewerUI {
     //MODIFIES: this
     //EFFECTS: sets up buttons to edit product attributes
     private void setupButtons() {
-        setupChangeNameButton();
-        setupChangePriceButton();
         setupUpdateStockButton();
         setupDeleteProductButton();
-    }
-
-    //MODIFIES: this
-    //EFFECTS: sets up the change name button and associated on-click event
-    private void setupChangeNameButton() {
-        JButton nameChangeButton = new JButton("Change Name");
-        nameChangeButton.setBounds(BUTTON_X, 5, 150, ELEMENT_HEIGHT);
-        nameChangeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Name change action (Product View Window)");
-            }
-        });
-        panel.add(nameChangeButton);
-    }
-
-    //MODIFIES: this
-    //EFFECTS: sets up the change price button and associated on-click event
-    private void setupChangePriceButton() {
-        JButton priceChangeButton = new JButton("Change Price");
-        priceChangeButton.setBounds(BUTTON_X, 30, 150, ELEMENT_HEIGHT);
-        priceChangeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Price change action (Product View Window)");
-            }
-        });
-        panel.add(priceChangeButton);
     }
 
     //MODIFIES: this
