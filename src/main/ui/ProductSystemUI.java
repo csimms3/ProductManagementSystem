@@ -190,6 +190,8 @@ public class ProductSystemUI {
 
     //EFFECTS: initializes a new GUI system
     public static void main(String[] args) {
+
+        new LoadingScreen(1500);
         new ProductSystemUI();
     }
 }
