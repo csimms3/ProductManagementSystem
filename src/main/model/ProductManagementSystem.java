@@ -21,6 +21,7 @@ public class ProductManagementSystem implements Writable {
     //MODIFIES: this
     //EFFECTS: adds product to catalogue
     public void addProduct(Product p) {
+        EventLog.getInstance().logEvent(new Event("Product " + p.getId() + " added."));
         this.catalogue.add(p);
     }
 
@@ -79,13 +80,16 @@ public class ProductManagementSystem implements Writable {
     //REQUIRES: index in range [0, catalogue.size() - 1] and catalogue not empty
     //EFFECTS: returns product at given position in catalogue
     public String getStringOfProductAtPosition(int index) {
-        return this.catalogue.get(index).toString();
+        Product p = this.catalogue.get(index);
+        EventLog.getInstance().logEvent(new Event("Viewing product " + p.getId()));
+        return p.toString();
     }
 
     //MODIFIES: this
     //EFFECTS: removes product from productsystem, if not present does nothing
     public void deleteProduct(int id) {
         catalogue.removeIf(prod -> prod.getId() == id);
+        EventLog.getInstance().logEvent(new Event("Product " + id + " was deleted."));
     }
 
 

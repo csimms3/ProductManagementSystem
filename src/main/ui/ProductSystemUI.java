@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Product;
 import model.ProductManagementSystem;
 import persistence.JsonReader;
@@ -143,6 +145,10 @@ public class ProductSystemUI {
                         JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
                     saveCatalogue();
                 }
+                for (Event e: EventLog.getInstance()) {
+                    System.out.println(e.toString());
+                }
+
             }
         });
     }
