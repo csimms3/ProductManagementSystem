@@ -45,24 +45,24 @@ that this id is unique (see below).
 - This will display a product view that will allow you to update its stock, or delete the product.
 
 ## Phase 4: Task 2
-Wed Mar 29 13:48:43 PDT 2023
-Product 24 added.
-Wed Mar 29 13:48:43 PDT 2023
-Product 100 added.
-Wed Mar 29 13:48:43 PDT 2023
-Product 2020 added.
-Wed Mar 29 13:48:44 PDT 2023
-Viewing product 24
-Wed Mar 29 13:48:44 PDT 2023
-Viewing product 100
-Wed Mar 29 13:48:44 PDT 2023
-Viewing product 2020
-Wed Mar 29 13:48:58 PDT 2023
-Product 24 was deleted.
-Wed Mar 29 13:49:01 PDT 2023
-Viewing product 100
-Wed Mar 29 13:49:01 PDT 2023
-Viewing product 2020
+Wed Mar 29 13:48:43 PDT 2023 \
+Product 24 added. \
+Wed Mar 29 13:48:43 PDT 2023 \
+Product 100 added. \
+Wed Mar 29 13:48:43 PDT 2023 \
+Product 2020 added. \
+Wed Mar 29 13:48:44 PDT 2023 \
+Viewing product 24 \
+Wed Mar 29 13:48:44 PDT 2023 \
+Viewing product 100 \
+Wed Mar 29 13:48:44 PDT 2023 \
+Viewing product 2020 \
+Wed Mar 29 13:48:58 PDT 2023 \
+Product 24 was deleted. \
+Wed Mar 29 13:49:01 PDT 2023 \
+Viewing product 100 \
+Wed Mar 29 13:49:01 PDT 2023 \
+Viewing product 2020 \
 
 ## Phase 4: Task 3
 
