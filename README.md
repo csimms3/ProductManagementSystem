@@ -63,3 +63,28 @@ Wed Mar 29 13:49:01 PDT 2023
 Viewing product 100
 Wed Mar 29 13:49:01 PDT 2023
 Viewing product 2020
+
+## Phase 4: Task 3
+
+Looking at the UML diagram of my project, two things are immediately evident to me.
+For one, all my UI classes, which each represent an individual window, are completely
+separate. Two, all these separate windows have a ProductManagementSystem, which leads
+to the fairly messy connections of associations to ProductManagementSystem.
+
+To fix the first problem, I would notice that there is likely a certain design/style I
+want all my windows to follow, which means common colors/margins/button styles between 
+windows. This is something I could abstract out into a "window template" class or something
+of the sort. I could also further group my windows, for example, as shown in the UML diagram,
+both ProductViewerUI and UpdateStockUI work with individual products, and it could be argued 
+that ProductCreationUI does too, even if it does not have a direct association. I could therefore
+abstract these out, taking their common features as classes that work with individual products and
+putting this into another class/interface.
+
+In my opinion, the second "problem" is more of a result of a design choice I made than an actual problem.
+This is because I chose to have each window delete itself when a new window is summoned, and then when
+the "x" is pressed, a new copy of the old window is created. Due to this, each window needs to be able to
+completely construct itself off only a ProductManagementSystem or Product (or both!), and therefore does 
+not rely on other window's information. An alternate choice here would be to have all windows access a central
+association to ProductManagementSystem, and instead of calling frame.dispose() to delete a given window,
+I could simply hide windows then have them reappear. The complication here would be dealing with window updating,
+which my solution managed to bypass.
