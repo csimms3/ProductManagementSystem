@@ -96,7 +96,6 @@ public class ProductViewerUI {
         priceChangeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Delete Product action (Product View Window)");
                 int reply = JOptionPane.showConfirmDialog(frame,
                         "Are you sure you want to delete this product?",
                         "Confirm Product Deletion", JOptionPane.YES_NO_OPTION);
