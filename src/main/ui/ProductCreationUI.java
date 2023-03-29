@@ -161,7 +161,6 @@ public class ProductCreationUI {
         confirmAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("AddToCatalogue Action (ProductConfirmation Window)");
                 confirmationFrame.dispose();
                 productSystem.addProduct(p);
                 JOptionPane.showMessageDialog(frame, "Product Added!",
@@ -179,7 +178,6 @@ public class ProductCreationUI {
         discard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("DiscardProduct Action (ProductConfirmation Window)");
                 confirmationFrame.dispose();
                 JOptionPane.showMessageDialog(frame, "Product Discarded",
                         "Cancelled", JOptionPane.INFORMATION_MESSAGE);

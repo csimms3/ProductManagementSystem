@@ -81,7 +81,6 @@ public class ProductViewerUI {
         addStockButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Update stock action (Product View Window)");
                 new UpdateStockUI(productSystem, product);
                 frame.dispose();
             }

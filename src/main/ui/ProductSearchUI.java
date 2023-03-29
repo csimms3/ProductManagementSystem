@@ -69,7 +69,6 @@ public class ProductSearchUI {
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Search by ID Action (ProductSearch Window)");
 
                 if (!searchBox.getText().equals("")) {
                     if (searchBox.getText().length() != 4 || (!isInteger(searchBox.getText()))) {

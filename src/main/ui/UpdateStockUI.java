@@ -74,7 +74,6 @@ public class UpdateStockUI {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Add stock action (Product View Window)");
                 if (isInteger(inputField.getText())) {
                     product.addStock(Integer.parseInt(inputField.getText()));
                     currentStock.setText("Current stock: " + product.getStock());
@@ -93,7 +92,6 @@ public class UpdateStockUI {
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Remove stock action (Product View Window)");
                 if (isInteger(inputField.getText())) {
                     int numToRemove = Integer.parseInt(inputField.getText());
                     if (product.getStock() <= numToRemove) {

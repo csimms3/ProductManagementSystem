@@ -79,7 +79,6 @@ public class ProductSystemUI {
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Search Action (Main Window)");
                 new ProductSearchUI(productSystem);
             }
         });
@@ -94,7 +93,6 @@ public class ProductSystemUI {
         newProductButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("New Product Action");
                 new ProductCreationUI(productSystem);
             }
         });
@@ -109,7 +107,6 @@ public class ProductSystemUI {
         viewProductsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("View Catalogue Action (Main Window)");
                 new ViewCatalogueUI(productSystem);
             }
         });
@@ -124,7 +121,6 @@ public class ProductSystemUI {
         loadSystemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Load Action (Main Window)");
                 productSystem = loadSystemFromFile();
                 JOptionPane.showMessageDialog(frame, "Catalogue loaded from: " + JSON_FILE,
                         "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -160,7 +156,6 @@ public class ProductSystemUI {
     private ProductManagementSystem loadSystemFromFile() {
         try {
             productSystem = jsonReader.read();
-            System.out.println("Loaded ProductSystem from " + JSON_FILE);
         } catch (IOException e) {
             System.out.println("File read error when reading from: " + JSON_FILE);
         }
@@ -173,7 +168,6 @@ public class ProductSystemUI {
             jsonWriter.openFile();
             jsonWriter.write(productSystem);
             jsonWriter.close();
-            System.out.println("Successfully saved Product System to: " + JSON_FILE);
         } catch (FileNotFoundException e) {
             System.out.println("File write error for: " + JSON_FILE);
         }
