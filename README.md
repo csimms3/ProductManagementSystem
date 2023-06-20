@@ -62,7 +62,7 @@ Product 24 was deleted. \
 Wed Mar 29 13:49:01 PDT 2023 \
 Viewing product 100 \
 Wed Mar 29 13:49:01 PDT 2023 \
-Viewing product 2020 \
+Viewing product 2020 
 
 ## Phase 4: Task 3
 
